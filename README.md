@@ -1,15 +1,19 @@
+### nbrb-currency
+
+[![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][depstat-image]][depstat-url]
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
-
-### nbrb-currency
 
 Package for getting of currencies of the National Bank of the Republic of Belarus.
 
 ```
 npm i -S nbrb-currency
 ```
+
+[npm-url]: https://npmjs.org/package/nbrb-currency
+[npm-image]: http://img.shields.io/npm/v/nbrb-currency.svg
 
 [travis-url]: https://travis-ci.org/havenchyk/nbrb-currency
 [travis-image]: http://img.shields.io/travis/havenchyk/nbrb-currency.svg
