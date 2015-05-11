@@ -1,0 +1,39 @@
+{
+  "name": "nbrb-currency",
+  "version": "0.0.0",
+  "description": "Get currency list from website of national belarussian bank in json",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "istanbul cover _mocha -- --require babel/register -R spec",
+    "precoveralls": "npm run coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "test": "mocha --require babel/register",
+    "tdd": "npm test -- --watch",
+    "prepush": "npm test",
+    "transpile": "babel index.es6 > index.js && babel ./src/downloadXML.es6 > ./src/downloadXML.js",
+    "prepublish": "npm run transpile",
+    "postpublish": "npm run rm && git push --follow-tags",
+    "rm": "rm index.js && rm src/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/havenchyk/nbrb-currency.git"
+  },
+  "author": "Uladzimir Havenchyk <havenchyk@gmail.com> (https://github.com/havenchyk)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/havenchyk/nbrb-currency/issues"
+  },
+  "homepage": "https://github.com/havenchyk/nbrb-currency#readme",
+  "devDependencies": {
+    "babel": "^5.2.16",
+    "coveralls": "^2.11.2",
+    "husky": "^0.7.0",
+    "istanbul": "^0.3.13",
+    "mocha": "^2.2.4"
+  },
+  "dependencies": {
+    "moment": "^2.10.2",
+    "xml2js": "^0.4.8"
+  }
+}
