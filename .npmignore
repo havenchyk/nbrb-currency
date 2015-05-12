@@ -4,3 +4,4 @@ coverage/
 *.es6
 npm-debug.log
 .travis.yml
+.editorconfig
