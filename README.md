@@ -12,8 +12,6 @@ Package for getting of currencies of the National Bank of the Republic of Belaru
 npm i -S nbrb-currency
 ```
 
-### Usage
-
 #### Getting currency rates for today
 
 ```js
