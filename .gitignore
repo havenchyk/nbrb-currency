@@ -1,6 +1,6 @@
-.idea
+.idea/
 node_modules/
 coverage/
-src/*.js
-index.js
+src/*.es5.js
+index.es5.js
 npm-debug.log

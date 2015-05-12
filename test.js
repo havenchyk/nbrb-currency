@@ -1,4 +1,4 @@
-import currency from './index.es6';
+import currency from './index';
 import moment from 'moment';
 import {expect} from 'chai';
 

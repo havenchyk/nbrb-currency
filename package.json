@@ -10,10 +10,10 @@
     "test": "mocha --require babel/register",
     "tdd": "npm test -- --watch",
     "prepush": "npm test",
-    "transpile": "babel index.es6 > index.js && babel ./src/downloadXML.es6 > ./src/downloadXML.js",
+    "transpile": "babel index.js > index.es5.js && babel ./src/downloadXML.js > ./src/downloadXML.es5.js",
     "prepublish": "npm run transpile",
     "postpublish": "npm run rm && git push origin master --follow-tags",
-    "rm": "rm index.js && rm src/*.js"
+    "rm": "rm index.es5.js && rm src/*.es5.js"
   },
   "repository": {
     "type": "git",
