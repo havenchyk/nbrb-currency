@@ -1,4 +1,4 @@
-### nbrb-currency
+# nbrb-currency
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
@@ -10,6 +10,20 @@ Package for getting of currencies of the National Bank of the Republic of Belaru
 
 ```
 npm i -S nbrb-currency
+```
+
+### Usage
+
+```js
+var currency = require('nbrb-currency');
+
+currency(function(err, data) {
+    var rate = data.currencies.find(function (item) {
+        return item.charCode === 'USD';
+    }).rate;
+    
+    console.log(rate); //it will print rate for USD for current date
+});
 ```
 
 [npm-url]: https://npmjs.org/package/nbrb-currency
