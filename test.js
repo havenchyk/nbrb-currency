@@ -3,6 +3,10 @@ import moment from 'moment';
 import {expect} from 'chai';
 
 describe('Check download functionality', function () {
+    it('Currency object should be available', () => {
+        expect(currency).to.be.a('function');    
+    });
+
     it('Should download currency for today', (done) => {
         currency((err, data) => {
             expect(err).to.be.a('null');
