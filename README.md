@@ -36,7 +36,7 @@ currency('12/24/2014', function(err, data) {
         return item.charCode === 'USD';
     }).rate;
     
-    console.log(rate); //it will print rate for USD for current '12/24/2014' *10950*
+    console.log(rate); //it will print rate for USD for date '12/24/2014': 10950
 });
 ```
 

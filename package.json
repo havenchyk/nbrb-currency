@@ -27,9 +27,9 @@
   "homepage": "https://github.com/havenchyk/nbrb-currency#readme",
   "devDependencies": {
     "babel": "^5.2.16",
-    "chai": "^2.3.0",
+    "chai": "^3.0.0",
     "coveralls": "^2.11.2",
-    "husky": "^0.7.0",
+    "husky": "^0.8.1",
     "istanbul": "^0.3.13",
     "mocha": "^2.2.4"
   },
