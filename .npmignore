@@ -1,7 +1,5 @@
 .idea/
-node_modules/
 coverage/
-npm-debug.log
 index.js
 src/downloadXML.js
 .travis.yml
