@@ -1,6 +1,3 @@
-.idea/
-coverage/
 index.js
-src/downloadXML.js
 .travis.yml
 .editorconfig
