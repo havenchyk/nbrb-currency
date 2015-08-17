@@ -13,7 +13,7 @@ export default (date, cb) => {
         date = currentDate;
     }
 
-    let url = endPoint + '?ondate=' + date;
+    let url = `${endPoint}?ondate=${date}`;
 
     got(url, function (err, data) {
         if (err) {
@@ -27,8 +27,8 @@ export default (date, cb) => {
                 return;
             }
 
-            let day = jsonData.DailyExRates['$'].Date;
-            let currencies = jsonData.DailyExRates['Currency'].map((item) => {
+            const day = jsonData.DailyExRates['$'].Date;
+            const currencies = jsonData.DailyExRates['Currency'].map(item => {
                 return {
                     charCode: item.CharCode[0],
                     name: item.Name[0],
@@ -36,7 +36,7 @@ export default (date, cb) => {
                 };
             });
 
-            let dateForDist = {
+            const dateForDist = {
                 date: day,
                 currencies: currencies
             };
