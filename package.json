@@ -1,6 +1,6 @@
 {
   "name": "nbrb-currency",
-  "version": "0.1.4",
+  "version": "0.1.3",
   "description": "Get currency list from website of national belarussian bank in json",
   "main": "index.es5.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "prepublish": "npm run transpile",
     "postpublish": "npm run rm && git push origin master --follow-tags",
     "rm": "rm index.es5.js",
-    "la": "babel index.js > index.es5.js"
+    "start": "babel-node main.js"
   },
   "repository": {
     "type": "git",

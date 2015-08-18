@@ -11,37 +11,38 @@ export default (date, cb) => {
     if (typeof date === 'function') {
         cb = date;
         date = currentDate;
+    } else if (!date) {
+      date = currentDate;
     }
 
-    let url = `${endPoint}?ondate=${date}`;
+    const url = `${endPoint}?ondate=${date}`;
 
-    got(url, function (err, data) {
-        if (err) {
-            cb(err);
-            return;
-        }
+    return got.get(url).then(res => {
+          const xml = res.body;
 
-        parseString(data, function (err, jsonData) {
-            if (err) {
-                cb(err);
-                return;
-            }
+          return new Promise(function(resolve) {
+            parseString(xml, (err, jsonData) => {
+                    if (err) {
+                        return;
+                    }
 
-            const day = jsonData.DailyExRates['$'].Date;
-            const currencies = jsonData.DailyExRates['Currency'].map(item => {
-                return {
-                    charCode: item.CharCode[0],
-                    name: item.Name[0],
-                    rate: item.Rate[0]
-                };
-            });
+                    const day = jsonData.DailyExRates['$'].Date;
+                    const currencies = jsonData.DailyExRates['Currency'].map(item => {
+                        return {
+                            charCode: item.CharCode[0],
+                            name: item.Name[0],
+                            rate: item.Rate[0]
+                        };
+                    });
 
-            const dateForDist = {
-                date: day,
-                currencies: currencies
-            };
+                    const dateForDist = {
+                        date: day,
+                        currencies: currencies
+                    };
 
-            cb(null, dateForDist);
-        });
-    });
+                    resolve(dateForDist);
+                });
+          })
+      })
+      .catch(console.error);
 };
