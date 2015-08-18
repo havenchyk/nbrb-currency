@@ -41,13 +41,13 @@ function asCallback(opts, cb) {
                 return;
             }
 
-            cb(null, normalizeResponse(data))
+            cb(null, normalizeResponse(data));
         });
     });
 }
 
 function asPromise(opts) {
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
 		asCallback(opts, function (err, data) {
 			if (err) {
 				reject(err);

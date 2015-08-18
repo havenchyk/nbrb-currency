@@ -14,7 +14,8 @@
     "prepublish": "npm run transpile",
     "postpublish": "npm run rm && git push origin master --follow-tags",
     "rm": "rm index.es5.js",
-    "start": "babel-node main.js"
+    "start": "babel-node main.js",
+    "lint": "eslint index.js"
   },
   "repository": {
     "type": "git",
@@ -28,8 +29,10 @@
   "homepage": "https://github.com/havenchyk/nbrb-currency#readme",
   "devDependencies": {
     "babel": "^5.2.16",
+    "babel-eslint": "^4.0.10",
     "chai": "^3.0.0",
     "coveralls": "^2.11.2",
+    "eslint": "^1.1.0",
     "husky": "^0.9.3",
     "istanbul": "^0.3.13",
     "mocha": "^2.2.4"
