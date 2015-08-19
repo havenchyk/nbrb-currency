@@ -14,7 +14,6 @@
     "prepublish": "npm run transpile",
     "postpublish": "npm run rm && git push origin master --follow-tags",
     "rm": "rm index.es5.js",
-    "start": "babel-node main.js",
     "lint": "eslint index.js"
   },
   "repository": {
