@@ -1,6 +1,6 @@
 {
   "name": "nbrb-currency",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Get currency list from website of national belarussian bank in json",
   "main": "index.es5.js",
   "scripts": {
