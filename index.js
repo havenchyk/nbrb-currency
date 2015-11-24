@@ -26,10 +26,10 @@ function normalizeArguments(opts) {
 
 const prepareResponse = (response) => {
   if (response.status !== 200) {
-    throw new Error('Looks like there was a problem. Status Code: ' + response.status);
+    throw new Error(`Looks like there was a problem. Status Code: ${response.status}`);
   }
 
-  return response.text()
+  return response.text();
 };
 
 function asCallback(opts, cb) {
