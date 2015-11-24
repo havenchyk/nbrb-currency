@@ -1,96 +1,98 @@
-import got from 'got';
 import moment from 'moment';
-import fs from 'fs';
 import {parseString} from 'xml2js';
+import fetch from 'isomorphic-fetch';
 
 const currentDate = moment().format('MM/DD/YYYY'),
-      endPoint = 'http://www.nbrb.by/Services/XmlExRates.aspx',
-      temporaryFileName = 'currency.xml';
-
-
+  endPoint = 'http://www.nbrb.by/Services/XmlExRates.aspx';
 
 function normalizeArguments(opts) {
-    if (!opts) {
-        opts = {};
-        opts.date = currentDate;
-    } else if (typeof opts === 'string') {
-        const date = opts;
-        opts = {};
-        opts.date = date;
-    }
+  if (!opts) {
+    opts = {};
+    opts.date = currentDate;
+  } else if (typeof opts === 'string') {
+    const date = opts;
+    opts = {};
+    opts.date = date;
+  }
 
-    if (!opts.date) {
-        opts.date = currentDate;
-    }
+  if (!opts.date) {
+    opts.date = currentDate;
+  }
 
-    opts.url = `${endPoint}?ondate=${opts.date}`;
+  opts.url = `${endPoint}?ondate=${opts.date}`;
 
-    return opts;
+  return opts;
 }
 
+const prepareResponse = (response) => {
+  if (response.status !== 200) {
+    throw new Error('Looks like there was a problem. Status Code: ' + response.status);
+  }
+
+  return response.text()
+};
+
 function asCallback(opts, cb) {
-    got.get(opts.url, function(err, xml) {
+  fetch(opts.url)
+    .then(prepareResponse)
+    .then(xml => {
+      parseString(xml, (err, data) => {
         if (err) {
-            cb(err);
-            return;
+          cb(err);
+          return;
         }
 
-        parseString(xml, (err, data) => {
-            if (err) {
-                cb(err);
-                return;
-            }
-
-            cb(null, normalizeResponse(data));
-        });
+        cb(null, normalizeResponse(data));
+      });
+    })
+    .catch(err => {
+      cb(err);
     });
 }
 
 function asPromise(opts) {
   return new Promise((resolve, reject) => {
-		asCallback(opts, function (err, data) {
-			if (err) {
-				reject(err);
-				return;
-			}
+    asCallback(opts, function (err, data) {
+      if (err) {
+        reject(err);
+        return;
+      }
 
-			resolve(data);
-		});
-	});
+      resolve(data);
+    });
+  });
 }
 
 function download(opts, cb) {
-	if (typeof opts === 'function') {
-		cb = opts;
-		opts = {};
-	}
+  if (typeof opts === 'function') {
+    cb = opts;
+    opts = {};
+  }
 
-	opts = normalizeArguments(opts);
+  opts = normalizeArguments(opts);
 
-	if (cb) {
-		asCallback(opts, cb);
-		return;
-	}
+  if (cb) {
+    asCallback(opts, cb);
+    return;
+  }
 
-	return asPromise(opts);
+  return asPromise(opts);
 }
 
 function normalizeResponse(jsonData) {
-    const day = jsonData.DailyExRates['$'].Date;
-    const currencies = jsonData.DailyExRates['Currency'].map(item => {
-        return {
-            charCode: item.CharCode[0],
-            name: item.Name[0],
-            rate: item.Rate[0]
-        };
-    });
-
-    const dateForDist = {
-        date: day,
-        currencies: currencies
+  const day = jsonData.DailyExRates['$'].Date;
+  const currencies = jsonData.DailyExRates['Currency'].map(item => {
+    return {
+      charCode: item.CharCode[0],
+      name: item.Name[0],
+      rate: item.Rate[0]
     };
+  });
 
-    return dateForDist;
+  return {
+    date: day,
+    currencies: currencies
+  };
 }
 
 export default download;
