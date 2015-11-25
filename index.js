@@ -45,9 +45,7 @@ function asCallback(opts, cb) {
         cb(null, normalizeResponse(data));
       });
     })
-    .catch(err => {
-      cb(err);
-    });
+    .catch(err => cb(err));
 }
 
 function asPromise(opts) {
