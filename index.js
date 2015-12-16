@@ -1,9 +1,9 @@
-import moment from 'moment';
 import {parseString} from 'xml2js';
 import fetch from 'isomorphic-fetch';
 
-const currentDate = moment().format('MM/DD/YYYY'),
-  endPoint = 'http://www.nbrb.by/Services/XmlExRates.aspx';
+const today = new Date(),
+      currentDate = [today.getMonth() + 1, today.getDate(), today.getFullYear()].join('/'),
+      endPoint = 'http://www.nbrb.by/Services/XmlExRates.aspx';
 
 function normalizeArguments(opts) {
   if (!opts) {
