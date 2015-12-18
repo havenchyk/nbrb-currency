@@ -6,7 +6,7 @@
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
 
-[![NPM](nodei-image)][nodei-url]
+[![NPM][nodei-image]][nodei-url]
 
 Package for getting of currencies of the National Bank of the Republic of Belarus.
 
