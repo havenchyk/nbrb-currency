@@ -57,5 +57,5 @@ currency('12/24/2014', function(err, data) {
 [coveralls-url]: https://coveralls.io/r/havenchyk/nbrb-currency
 [coveralls-image]: https://coveralls.io/repos/havenchyk/nbrb-currency/badge.svg
 
-[nodei-url]: https://nodei.co/npm/to-ms
-[nodei-image]: https://nodei.co/npm/to-ms.png?downloads=true
+[nodei-url]: https://nodei.co/npm/nbrb-currency
+[nodei-image]: https://nodei.co/npm/nbrb-currency.png?downloads=true
