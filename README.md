@@ -49,13 +49,13 @@ currency('12/24/2014', function(err, data) {
 [travis-image]: http://img.shields.io/travis/havenchyk/nbrb-currency.svg
 
 [depstat-url]: https://david-dm.org/havenchyk/nbrb-currency
-[depstat-image]: https://david-dm.org/havenchyk/nbrb-currency.svg
+[depstat-image]: https://img.shields.io/david/havenchyk/nbrb-currency.svg
 
 [depstat-dev-url]: https://david-dm.org/havenchyk/nbrb-currency
-[depstat-dev-image]: https://david-dm.org/havenchyk/nbrb-currency/dev-status.svg
+[depstat-dev-image]: https://img.shields.io/david/dev/havenchyk/nbrb-currency.svg
 
 [coveralls-url]: https://coveralls.io/r/havenchyk/nbrb-currency
-[coveralls-image]: https://coveralls.io/repos/havenchyk/nbrb-currency/badge.svg
+[coveralls-image]: https://img.shields.io/coveralls/havenchyk/nbrb-currency.svg
 
 [nodei-url]: https://nodei.co/npm/nbrb-currency
 [nodei-image]: https://nodei.co/npm/nbrb-currency.png?downloads=true
