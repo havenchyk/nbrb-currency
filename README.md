@@ -6,6 +6,8 @@
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
 
+[![NPM](nodei-image)][nodei-url]
+
 Package for getting of currencies of the National Bank of the Republic of Belarus.
 
 ```
@@ -54,3 +56,6 @@ currency('12/24/2014', function(err, data) {
 
 [coveralls-url]: https://coveralls.io/r/havenchyk/nbrb-currency
 [coveralls-image]: https://coveralls.io/repos/havenchyk/nbrb-currency/badge.svg
+
+[nodei-url]: https://nodei.co/npm/to-ms
+[nodei-image]: https://nodei.co/npm/to-ms.png?downloads=true
