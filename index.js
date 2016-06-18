@@ -30,7 +30,18 @@ const prepareResponse = (response) => {
   return response.text()
 }
 
-function download (opts, cb) {
+function normalizeResponse ({DailyExRates}) {
+  const date = DailyExRates['$'].Date
+  const currencies = DailyExRates['Currency'].map(item => ({
+    charCode: item.CharCode[0],
+    name: item.Name[0],
+    rate: item.Rate[0]
+  }))
+
+  return {date, currencies}
+}
+
+export default (opts, cb) => {
   if (typeof opts === 'function') {
     cb = opts
     opts = {}
@@ -44,16 +55,3 @@ function download (opts, cb) {
     .then(data => cb(null, normalizeResponse(data)))
     .catch(err => cb(err))
 }
-
-function normalizeResponse (jsonData) {
-  const date = jsonData.DailyExRates['$'].Date
-  const currencies = jsonData.DailyExRates['Currency'].map(item => ({
-    charCode: item.CharCode[0],
-    name: item.Name[0],
-    rate: item.Rate[0]
-  }))
-
-  return {date, currencies}
-}
-
-export default download
