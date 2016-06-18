@@ -10,7 +10,7 @@
     "prepush": "npm test",
     "transpile": "babel index.js > index.es5.js",
     "prepublish": "npm run transpile",
-    "postpublish": "npm run rm && git push origin master --follow-tags",
+    "postpublish": "npm run rm",
     "rm": "rm index.es5.js",
     "lint": "standard index.js test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
