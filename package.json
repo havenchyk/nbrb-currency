@@ -8,7 +8,7 @@
     "coverage": "istanbul cover _mocha -- --require babel/register",
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",
-    "test": "mocha --compilers js:babel-core/register",
+    "test": "mocha --compilers js:babel-core/register -t 0",
     "tdd": "npm test -- --watch",
     "prepush": "npm test",
     "transpile": "babel index.js > index.es5.js",

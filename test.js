@@ -8,7 +8,7 @@ const today = new Date()
 const date = [today.getMonth() + 1, today.getDate(), today.getFullYear()].join('/')
 
 describe('Check download functionality', function () {
-  it('Currency object should be available', () => {
+  it.only('Currency object should be available', () => {
     expect(currency).to.be.a('function')
   })
 
