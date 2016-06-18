@@ -7,7 +7,6 @@
   "scripts": {
     "test": "mocha --compilers js:babel-core/register -t 0",
     "tdd": "npm test -- --watch",
-    "prepush": "npm test",
     "transpile": "babel index.js > index.es5.js",
     "prepublish": "npm run transpile",
     "postpublish": "npm run rm",
