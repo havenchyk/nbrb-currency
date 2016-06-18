@@ -3,6 +3,7 @@
   "version": "0.9.0",
   "description": "Get currency list from website of national belarussian bank in json",
   "main": "index.es5.js",
+  "jsnext:main": "index.js",
   "scripts": {
     "coverage": "istanbul cover _mocha -- --require babel/register",
     "precoveralls": "npm run coverage",
