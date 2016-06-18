@@ -1,6 +1,6 @@
 {
   "name": "nbrb-currency",
-  "version": "1.0.3",
+  "version": "0.0.0-semantically-released",
   "description": "Get currency list from website of national belarussian bank in json",
   "main": "index.es5.js",
   "jsnext:main": "index.js",
@@ -12,11 +12,12 @@
     "prepublish": "npm run transpile",
     "postpublish": "npm run rm && git push origin master --follow-tags",
     "rm": "rm index.es5.js",
-    "lint": "standard index.js test.js"
+    "lint": "standard index.js test.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/havenchyk/nbrb-currency.git"
+    "url": "https://github.com/havenchyk/nbrb-currency.git"
   },
   "author": "Uladzimir Havenchyk <havenchyk@gmail.com> (https://github.com/havenchyk)",
   "license": "MIT",
@@ -30,9 +31,9 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-register": "^6.9.0",
     "chai": "^3.0.0",
-    "husky": "^0.11.4",
     "mocha": "^2.2.4",
-    "standard": "^7.1.2"
+    "standard": "^7.1.2",
+    "semantic-release": "^4.3.5"
   },
   "dependencies": {
     "babel-polyfill": "^6.9.1",
