@@ -26,7 +26,7 @@
   "homepage": "https://github.com/havenchyk/nbrb-currency#readme",
   "devDependencies": {
     "babel-cli": "^6.10.1",
-    "babel-core": "^6.9.1",
+    "babel-core": "^6.22.1",
     "babel-preset-es2015": "^6.13.0",
     "babel-register": "^6.9.0",
     "chai": "^3.0.0",
